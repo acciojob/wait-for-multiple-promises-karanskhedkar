@@ -33,24 +33,30 @@ const promise3 = () => {
 };
 
 Promise.all([promise1(), promise2(), promise3()]).then((data) => {
-  console.log(data);
   const tbodyElement = document.getElementById("output");
-  tbodyElement.innerHTML = `
-  <tr>
+  const loadingRow = document.getElementById("loading");
+  if (loadingRow) {
+    loadingRow.remove();
+  }
+  if (tbodyElement) {
+    tbodyElement.innerHTML = `
+    <tr>
     <td>${data[0].prom}</td>
-    <td>${(data[0].time).toFixed(0)}</td>
-  </tr>
-  <tr>
+    <td>${data[0].time.toFixed(0)}</td>
+    </tr>
+    <tr>
     <td>${data[1].prom}</td>
-    <td>${(data[1].time).toFixed(0)}</td>
-  </tr>
-  <tr>
+    <td>${data[1].time.toFixed(0)}</td>
+    </tr>
+    <tr>
     <td>${data[2].prom}</td>
-    <td>${(data[2].time).toFixed(0)}</td>
-  </tr>
-  <tr>
+    <td>${data[2].time.toFixed(0)}</td>
+    </tr>
+    <tr>
     <td>Total</td>
-    <td>${(data[0].time+data[1].time+data[2].time).toFixed(3)}</td>
-  </tr>
-  `;
+    <td>${(data[0].time + data[1].time + data[2].time).toFixed(3)}</td>
+    </tr>
+    `;
+  }
 });
+
