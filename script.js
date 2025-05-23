@@ -16,7 +16,7 @@ const promise2 = () => {
     setTimeout(() => {
       const end = performance.now();
       const timeTaken = ((end - start) / 1000).toFixed(3);
-      resolve({ prom: "Promise 3", time: parseFloat(timeTaken) });
+      resolve({ prom: "Promise 2", time: parseFloat(timeTaken) });
     }, 2000);
   });
 };
